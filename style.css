@@ -59,6 +59,29 @@ html {
 	border-radius: 5px;
 }
 
+.hidden {
+	opacity: 0;
+}
+
+.container {
+	transition: all 0.5s;
+}
+
+.hotbar {
+	transition: transform 0.5s ease-in-out;
+}
+
+.hotbar .slot::after {
+	content: attr(data-content);
+	position: absolute;
+	margin: 3px;
+}
+
+.hotbar.hidden {
+	opacity: 1;
+	transform: translate(0, 100px);
+}
+
 .slot.selected {
 	outline: 2px solid black;
 }

@@ -18,6 +18,7 @@ class Hotbar extends Container {
 		for (let i = 0; i < 9; i++) {
 			const slot = this.slots[i].dom;
 			slot.classList.remove("selected");
+			slot.dataset.content = i + 1;
 			if (index == i) {
 				slot.classList.add("selected");
 			}

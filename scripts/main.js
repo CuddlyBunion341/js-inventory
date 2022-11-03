@@ -22,6 +22,11 @@ document.addEventListener("keydown", (e) => {
 		7: () => (hotbar.selectedSlot = 6),
 		8: () => (hotbar.selectedSlot = 7),
 		9: () => (hotbar.selectedSlot = 8),
+		e: () => {
+			inventory.containers.forEach((container) =>
+				container.dom.classList.toggle("hidden")
+			);
+		},
 	};
 
 	actions[e.key]?.();
