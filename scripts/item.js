@@ -1,5 +1,4 @@
 "use strict";
-
 const createItem = (() => {
 	let id = 0;
 	return (name, stackSize = 10) => ({
@@ -10,10 +9,10 @@ const createItem = (() => {
 })();
 
 const itemList = [
-	createItem("stone", 10),
-	createItem("dirt", 10),
-	createItem("cobblestone", 10),
-	createItem("oak_log", 10),
+	createItem("stone"),
+	createItem("dirt"),
+	createItem("cobblestone"),
+	createItem("oak_log"),
 ];
 
 const items = new Map();

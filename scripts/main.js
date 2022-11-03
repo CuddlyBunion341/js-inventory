@@ -1,5 +1,4 @@
 "use strict";
-
 const wrapper = document.querySelector(".wrapper");
 
 const inventory = new Inventory(wrapper);
@@ -10,6 +9,7 @@ inventory.addContainer(new Container("main", 3, 9));
 inventory.addContainer(new Hotbar());
 
 document.addEventListener("keydown", (e) => {
+	if (e.repeat) return;
 	const hotbar = inventory.containers.get("hotbar");
 
 	const actions = {

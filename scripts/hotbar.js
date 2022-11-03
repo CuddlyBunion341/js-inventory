@@ -3,6 +3,13 @@ class Hotbar extends Container {
 	constructor() {
 		super("hotbar", 1, 9);
 		this.selectedSlot = 0;
+
+		this.slots.forEach((slot, index) =>
+			slot.dom.addEventListener(
+				"click",
+				() => (this.selectedSlot = index)
+			)
+		);
 	}
 
 	get selectedSlot() {

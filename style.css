@@ -57,6 +57,7 @@ html {
 	height: var(--slot-size);
 	width: var(--slot-size);
 	border-radius: 5px;
+	image-rendering: pixelated;
 }
 
 .hidden {
@@ -84,4 +85,23 @@ html {
 
 .slot.selected {
 	outline: 2px solid black;
+}
+
+.armor .slot {
+	image-rendering: pixelated;
+	background-size: 80%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.armor .slot:empty:nth-child(1) {
+	background-image: url(images/empty_armor_slot_helmet.png);
+}
+.armor .slot:empty:nth-child(2) {
+	background-image: url(images/empty_armor_slot_chestplate.png);
+}
+.armor .slot:empty:nth-child(3) {
+	background-image: url(images/empty_armor_slot_leggings.png);
+}
+.armor .slot:empty:nth-child(4) {
+	background-image: url(images/empty_armor_slot_boots.png);
 }

@@ -1,3 +1,4 @@
+"use strict";
 class Container {
 	constructor(name, rows, cols) {
 		this.name = name;
