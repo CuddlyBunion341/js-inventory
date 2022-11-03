@@ -58,3 +58,7 @@ html {
 	width: var(--slot-size);
 	border-radius: 5px;
 }
+
+.slot.selected {
+	outline: 2px solid black;
+}

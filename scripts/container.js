@@ -1,5 +1,6 @@
 class Container {
 	constructor(name, rows, cols) {
+		this.name = name;
 		this.rows = rows;
 		this.cols = cols;
 		this.slots = [];
