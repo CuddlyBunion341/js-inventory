@@ -1,3 +1,60 @@
 :root {
-	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+	--slot-size: 60px;
+}
+
+body,
+html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper {
+	width: min-content;
+}
+
+.container {
+	position: relative;
+	display: inline-grid;
+	grid-template-columns: repeat(var(--cols), var(--slot-size));
+	gap: 5px;
+	margin: 5px;
+}
+
+.main .slot {
+	background-color: cornflowerblue;
+}
+.hotbar .slot {
+	background-color: tomato;
+}
+.armor .slot {
+	background-color: steelblue;
+}
+.craft-in .slot,
+.craft-out .slot {
+	background-color: darkcyan;
+}
+
+.craft-in {
+	top: calc(var(--slot-size) + 5px);
+	left: calc(var(--slot-size) * 4 + 15px);
+}
+
+.craft-out {
+	top: calc(var(--slot-size) * 1.5 + 10px);
+	left: calc(var(--slot-size) * 5 + 15px);
+}
+
+.slot {
+	background-color: tomato;
+	height: var(--slot-size);
+	width: var(--slot-size);
+	border-radius: 5px;
 }
