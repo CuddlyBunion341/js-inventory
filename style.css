@@ -20,6 +20,10 @@ html {
 	width: min-content;
 }
 
+.wrapper .container {
+	opacity: 0;
+}
+
 .container {
 	position: relative;
 	display: inline-grid;
@@ -53,33 +57,36 @@ html {
 }
 
 .slot {
-	background-color: tomato;
 	height: var(--slot-size);
 	width: var(--slot-size);
 	border-radius: 5px;
 	image-rendering: pixelated;
 }
 
-.hidden {
-	opacity: 0;
+.wrapper.open .container {
+	opacity: 1;
 }
 
 .container {
-	transition: all 0.5s;
+	transition: opacity 0.5s;
 }
 
-.hotbar {
+.hotbar:not(.open) {
+	opacity: 1 !important;
 	transition: transform 0.5s ease-in-out;
 }
 
-.hotbar .slot::after {
+.slot::before {
 	content: attr(data-content);
 	position: absolute;
 	margin: 3px;
 }
 
-.hotbar.hidden {
-	opacity: 1;
+.wrapper.open .hotbar {
+	transform: translate(0, 0);
+}
+
+.hotbar {
 	transform: translate(0, 100px);
 }
 
@@ -88,10 +95,10 @@ html {
 }
 
 .armor .slot {
-	image-rendering: pixelated;
 	background-size: 80%;
-	background-repeat: no-repeat;
+	image-rendering: pixelated;
 	background-position: center;
+	background-repeat: no-repeat;
 }
 .armor .slot:empty:nth-child(1) {
 	background-image: url(images/empty_armor_slot_helmet.png);
@@ -104,4 +111,9 @@ html {
 }
 .armor .slot:empty:nth-child(4) {
 	background-image: url(images/empty_armor_slot_boots.png);
+}
+
+.slot img {
+	width: 80%;
+	margin: 10%;
 }

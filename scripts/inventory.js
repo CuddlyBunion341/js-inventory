@@ -9,6 +9,6 @@ class Inventory {
 	addContainer(container) {
 		this.containers.set(container.name, container);
 		this.parent.appendChild(container.dom);
-		this.slots.concat(...container.slots);
+		this.slots.push(...container.slots);
 	}
 }

@@ -23,4 +23,13 @@ class Container {
 			}
 		}
 	}
+
+	setItems(itemList) {
+		for (let i = 0; i < itemList.length; i++) {
+			const { item: name, count } = itemList[i];
+
+			const item = new InventoryItem(name, count);
+			this.slots[i].item = item;
+		}
+	}
 }
