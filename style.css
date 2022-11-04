@@ -63,17 +63,18 @@ html {
 	image-rendering: pixelated;
 }
 
+.wrapper.open {
+	background-color: powderblue;
+	border-radius: 5px;
+	padding: 5px;
+}
+
 .wrapper.open .container {
 	opacity: 1;
 }
 
-.container {
-	transition: opacity 0.5s;
-}
-
 .hotbar:not(.open) {
 	opacity: 1 !important;
-	transition: transform 0.5s ease-in-out;
 }
 
 .slot::before {
@@ -83,11 +84,11 @@ html {
 }
 
 .wrapper.open .hotbar {
-	transform: translate(0, 0);
+	top: 0px;
 }
 
 .hotbar {
-	transform: translate(0, 100px);
+	top: 100px;
 }
 
 .slot.selected {
