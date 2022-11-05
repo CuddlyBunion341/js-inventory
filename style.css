@@ -5,6 +5,11 @@
 	--slot-size: 60px;
 }
 
+@font-face {
+	font-family: minecraft;
+	src: url(MinecraftRegular-Bmg3.otf);
+}
+
 body,
 html {
 	width: 100%;
@@ -22,10 +27,12 @@ body.dimmed {
 
 .wrapper {
 	width: min-content;
+	position: relative;
 }
 
 .wrapper .container {
 	opacity: 0;
+	/* display: none; */
 }
 
 .container {
@@ -75,10 +82,12 @@ body.dimmed {
 
 .wrapper.open .container {
 	opacity: 1;
+	display: inline-grid;
 }
 
 .hotbar:not(.open) {
 	opacity: 1 !important;
+	display: inline-grid;
 }
 
 .slot::before {
@@ -124,4 +133,15 @@ body.dimmed {
 .slot img {
 	width: 80%;
 	margin: 10%;
+}
+
+#crafting-label {
+	font-family: minecraft;
+	z-index: 999;
+	position: absolute;
+	text-align: center;
+	width: calc(var(--slot-size) * 2 + 5px);
+	left: calc(var(--slot-size) * 5 + 35px);
+	top: calc(var(--slot-size) * 0.6);
+	font-size: 20px;
 }
