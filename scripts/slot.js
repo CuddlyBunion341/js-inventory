@@ -3,7 +3,7 @@
 class Slot {
 	_item = null;
 	constructor() {
-		this.filter = () => {}; // for armor
+		this.filter = () => true; // for armor
 		this.createDOM();
 	}
 
@@ -27,9 +27,11 @@ class Slot {
 	ondrop(e) {
 		if (this.dom.children.length == 0) {
 			const id = e.dataTransfer.getData("text/plain");
-			const item = document.getElementById(id);
+			const item = InventoryItem.getItem(id);
 
-			this.dom.appendChild(item);
+			if (this.filter(item)) {
+				this.dom.appendChild(item.dom);
+			}
 		}
 	}
 

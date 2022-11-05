@@ -16,6 +16,10 @@ html {
 	align-items: center;
 }
 
+body.dimmed {
+	background-color: #000000ba;
+}
+
 .wrapper {
 	width: min-content;
 }
@@ -85,6 +89,9 @@ html {
 
 .wrapper.open .hotbar {
 	top: 0px;
+}
+.wrapper.open .hotbar .slot {
+	background-color: lightsteelblue;
 }
 
 .hotbar {

@@ -17,7 +17,10 @@ const itemList = [
 	createItem("block", "oak_log"),
 	createItem("item", "bucket", 2),
 	createItem("item", "diamond_pickaxe"),
+	createItem("armor", "chainmail_helmet"),
 	createItem("armor", "chainmail_chestplate"),
+	createItem("armor", "chainmail_leggings"),
+	createItem("armor", "chainmail_boots"),
 ];
 
 const items = new Map();
@@ -34,6 +37,7 @@ class InventoryItem {
 		this.item = items.get(itemName);
 		this.createDOM();
 		this.count = count;
+		this.name = itemName;
 
 		InventoryItem.instances.push(this);
 	}

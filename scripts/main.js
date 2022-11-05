@@ -8,9 +8,32 @@ inventory.addContainer(new Container("craft-out", 1, 1));
 inventory.addContainer(new Container("main", 3, 9));
 inventory.addContainer(new Hotbar());
 
+{
+	// add filters to armor slots
+	const filters = [
+		(item) => item.name.includes("helmet"),
+		(item) => item.name.includes("chestplate"),
+		(item) => item.name.includes("leggings"),
+		(item) => item.name.includes("boots"),
+	];
+
+	const armor = inventory.containers.get("armor");
+	for (let i = 0; i < 4; i++) {
+		armor.slots[i].filter = filters[i];
+	}
+
+	// add filter to crafting slot
+	const craftOut = inventory.containers.get("craft-out");
+	craftOut.slots[0].filter = () => false;
+}
+
 inventory.containers.get("hotbar").setItems([
 	{ item: "stone", count: 10 },
 	{ item: "cobblestone", count: 10 },
+	{ item: "chainmail_chestplate", count: 1 },
+	{ item: "chainmail_helmet", count: 1 },
+	{ item: "chainmail_leggings", count: 1 },
+	{ item: "chainmail_boots", count: 1 },
 ]);
 null,
 	document.addEventListener("keydown", (e) => {
@@ -29,6 +52,7 @@ null,
 			9: () => (hotbar.selectedSlot = 8),
 			e: () => {
 				wrapper.classList.toggle("open");
+				document.body.classList.toggle("dimmed");
 			},
 		};
 
