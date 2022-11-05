@@ -1,13 +1,16 @@
 "use strict";
 const createItem = (() => {
 	let id = 0;
-	return (category, name, stackSize = 10) => ({
-		id: id++,
-		category,
-		name,
-		stackSize,
-		url: `images/${name}.${category == "block" ? "webp" : "png"}`,
-	});
+	return (category, name, stackSize = 10) => {
+		const ext = category == "block" ? "webp" : "png";
+		return {
+			id: id++,
+			category,
+			name,
+			stackSize,
+			url: `images/${category}/${name}.${ext}`,
+		};
+	};
 })();
 
 const itemList = [
@@ -17,10 +20,10 @@ const itemList = [
 	createItem("block", "oak_log"),
 	createItem("item", "bucket", 2),
 	createItem("item", "diamond_pickaxe"),
-	createItem("armor", "chainmail_helmet"),
-	createItem("armor", "chainmail_chestplate"),
-	createItem("armor", "chainmail_leggings"),
-	createItem("armor", "chainmail_boots"),
+	createItem("item", "chainmail_helmet"),
+	createItem("item", "chainmail_chestplate"),
+	createItem("item", "chainmail_leggings"),
+	createItem("item", "chainmail_boots"),
 ];
 
 const items = new Map();
@@ -59,6 +62,10 @@ class InventoryItem {
 
 	addEventListeners() {
 		this.dom.addEventListener("dragstart", (e) => this.ondragstart(e));
+	}
+
+	onclick(e) {
+		if (e.shiftKey);
 	}
 
 	ondragstart(e) {

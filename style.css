@@ -1,3 +1,4 @@
+/* general */
 :root {
 	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
 		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -25,14 +26,10 @@ body.dimmed {
 	background-color: #000000ba;
 }
 
+/* container */
 .wrapper {
 	width: min-content;
 	position: relative;
-}
-
-.wrapper .container {
-	opacity: 0;
-	/* display: none; */
 }
 
 .container {
@@ -42,6 +39,8 @@ body.dimmed {
 	gap: 5px;
 	margin: 5px;
 }
+
+/* slot color */
 
 .main .slot {
 	background-color: cornflowerblue;
@@ -57,13 +56,15 @@ body.dimmed {
 	background-color: darkcyan;
 }
 
+/* container & slot layout */
+
 .craft-in {
 	top: calc(var(--slot-size) + 5px);
 	left: calc(var(--slot-size) * 4 + 15px);
 }
 
 .craft-out {
-	top: calc(var(--slot-size) * 1.5 + 10px);
+	top: calc(var(--slot-size) * 1.5 + 7.5px);
 	left: calc(var(--slot-size) * 5 + 15px);
 }
 
@@ -74,36 +75,35 @@ body.dimmed {
 	image-rendering: pixelated;
 }
 
-.wrapper.open {
+.wrapper {
+	visibility: hidden;
 	background-color: powderblue;
 	border-radius: 5px;
 	padding: 5px;
 }
 
-.wrapper.open .container {
-	opacity: 1;
-	display: inline-grid;
+.wrapper.open {
+	visibility: visible;
 }
 
-.hotbar:not(.open) {
-	opacity: 1 !important;
-	display: inline-grid;
-}
-
+/* slot index */
 .slot::before {
 	content: attr(data-content);
 	position: absolute;
 	margin: 3px;
 }
 
+/* hotbar */
 .wrapper.open .hotbar {
 	top: 0px;
 }
+
 .wrapper.open .hotbar .slot {
 	background-color: lightsteelblue;
 }
 
 .hotbar {
+	visibility: visible;
 	top: 100px;
 }
 
@@ -111,6 +111,7 @@ body.dimmed {
 	outline: 2px solid black;
 }
 
+/* armor */
 .armor .slot {
 	background-size: 80%;
 	image-rendering: pixelated;
@@ -118,23 +119,25 @@ body.dimmed {
 	background-repeat: no-repeat;
 }
 .armor .slot:empty:nth-child(1) {
-	background-image: url(images/empty_armor_slot_helmet.png);
+	background-image: url(images/gui/empty_armor_slot_helmet.png);
 }
 .armor .slot:empty:nth-child(2) {
-	background-image: url(images/empty_armor_slot_chestplate.png);
+	background-image: url(images/gui/empty_armor_slot_chestplate.png);
 }
 .armor .slot:empty:nth-child(3) {
-	background-image: url(images/empty_armor_slot_leggings.png);
+	background-image: url(images/gui/empty_armor_slot_leggings.png);
 }
 .armor .slot:empty:nth-child(4) {
-	background-image: url(images/empty_armor_slot_boots.png);
+	background-image: url(images/gui/empty_armor_slot_boots.png);
 }
 
+/* items */
 .slot img {
 	width: 80%;
 	margin: 10%;
 }
 
+/* additional gui elements */
 #crafting-label {
 	font-family: minecraft;
 	z-index: 999;
@@ -143,5 +146,12 @@ body.dimmed {
 	width: calc(var(--slot-size) * 2 + 5px);
 	left: calc(var(--slot-size) * 5 + 35px);
 	top: calc(var(--slot-size) * 0.6);
-	font-size: 20px;
+	font-size: 25px;
+}
+
+#crafting-arrow {
+	position: absolute;
+	z-index: 999;
+	left: calc(var(--slot-size) * 7 + 50px);
+	top: calc(var(--slot-size) * 1.9 + 4px);
 }
